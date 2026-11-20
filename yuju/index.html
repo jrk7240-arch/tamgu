@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>유주의 신기한 정원</title>
+<style>body{margin:0;display:grid;place-items:center;min-height:100vh;font:20px system-ui,sans-serif;background:#fff8e6;color:#2b2440;text-align:center;padding:20px}</style></head>
+<body><p id="m">유주의 신기한 정원 여는 중…</p>
+<script>(function(){var API="https://script.google.com/macros/s/AKfycbx3XwmBzfeoQ2-A8O3oIuXxnTnYoHr1VAACExsUpEHf-8zSel50qpp-RhIbPZo41wu5/exec",K="tamgu-app-yuju";
+function show(h){document.open();document.write(h);document.close()}
+function fail(){var c=null;try{c=localStorage.getItem(K)}catch(e){}if(c)show(c);else document.getElementById("m").textContent="연결이 안 돼요. 잠시 뒤 다시 열어 주세요."}
+function go(n){fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({fn:"getApp",a:["yuju"]})})
+.then(function(r){return r.json()}).then(function(j){if(j.err)throw j.err;try{localStorage.setItem(K,j.r)}catch(e){}show(j.r)})
+.catch(function(){if(n<2)setTimeout(function(){go(n+1)},1200*(n+1));else fail()})}
+go(0)})();</script></body></html>
